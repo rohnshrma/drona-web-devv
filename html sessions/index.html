@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--
+      <!DOCTYPE html>
+      This tells the browser that this file is an HTML5 document.
+      It is not an HTML tag like <p> or <h1>.
+      It is an instruction that helps the browser render the page in a modern, standard way.
+    -->
+
+    <!--
+      <head>
+      The head stores information ABOUT the page, not the visible page content.
+      Things usually placed here:
+      1. <title> -> text shown on the browser tab
+      2. <meta> -> extra page information
+      3. <link> -> external CSS files
+      4. <script> -> JavaScript files
+      5. <style> -> internal CSS
+    -->
+    <title>MY FIRST WEBSITE</title>
+  </head>
+  <body>
+    <!--
+      <body>
+      Everything inside the body is the visible content of the webpage.
+      If you want something to appear on the page, it usually goes inside <body>.
+    -->
+
+    <!--
+      Headings:
+      HTML gives us heading tags from <h1> to <h6>.
+      <h1> is the most important / biggest heading by default.
+      <h6> is the least important / smallest heading by default.
+
+      Important beginner concept:
+      Headings are not only for size.
+      They also give STRUCTURE and meaning to the page, like chapter titles in a book.
+      A webpage should usually have one main <h1>, then smaller headings below it.
+    -->
+    <h1>hello world</h1>
+    <h2>hello world</h2>
+    <h3>hello world</h3>
+    <h4>hello world</h4>
+    <h5>hello world</h5>
+    <h6>hello world</h6>
+
+    <!--
+      <p> means paragraph.
+      Use it for normal blocks of text.
+      Browsers automatically add a little space before and after paragraphs.
+    -->
+    <p>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem
+      neque natus inventore.
+    </p>
+
+    <!--
+      <ol> means ordered list.
+      Ordered list = items appear in a sequence like 1, 2, 3 or I, II, III.
+
+      type="I" means:
+      show Roman capital numbers instead of normal counting numbers.
+
+      <li> means list item.
+      Every item inside <ol> or <ul> is written using <li>.
+    -->
+    <ol type="I">
+      <li>Apple</li>
+      <li>Banana</li>
+      <li>Cherry</li>
+    </ol>
+
+    <!--
+      <ul> means unordered list.
+      Unordered list = items do not have ranking or order.
+      Browsers usually show bullet points.
+
+      type="circle" changes the bullet style to hollow circles.
+    -->
+    <ul type="circle">
+      <li>Apple</li>
+      <li>Banana</li>
+      <li>Cherry</li>
+    </ul>
+
+    <!--
+      <dl> means description list.
+      This is useful for terms and their meanings.
+
+      <dt> = description term
+      <dd> = description details
+
+      Think of it like:
+      Word -> Explanation
+    -->
+    <dl>
+      <dt>Apple</dt>
+      <dd>Red in Color</dd>
+      <dt>Apple</dt>
+      <dd>Red in Color</dd>
+    </dl>
+
+    <!--
+      <table> is used to show data in rows and columns.
+
+      border
+      This is an old HTML way to show a visible border around the table.
+      Beginners may still see it in practice files.
+      In modern web development, borders are usually added with CSS instead.
+    -->
+    <table border>
+      <!-- <tr> means table row -->
+      <tr>
+        <!-- <th> means table heading cell. It is used for column titles. -->
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+      </tr>
+      <tr>
+        <!-- <td> means table data cell. This is normal table content. -->
+        <td>Rohan</td>
+        <td>28</td>
+        <td>Male</td>
+      </tr>
+      <tr>
+        <td>Drona</td>
+        <td>18</td>
+        <td>Male</td>
+      </tr>
+    </table>
+
+    <!--
+      Quick beginner summary:
+      1. HTML is used to create the structure of a webpage.
+      2. Tags tell the browser what each piece of content means.
+      3. Most tags have an opening tag and a closing tag.
+         Example: <p>Text</p>
+      4. Nesting means putting one tag inside another tag.
+      5. Good HTML is not only about appearance, it is also about meaning and structure.
+    -->
+  </body>
+</html>
