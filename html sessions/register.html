@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <ul>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="about.html">ABOUT</a></li>
+      <li><a href="index.html#drona">SOTY</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+      <li><a href="register.html">REGISTER</a></li>
+    </ul>
+
+    <hr />
+
+    <form
+      action="mailto:rohn11shrma@gmail.com"
+      method="post"
+      enctype="text/plain"
+    >
+      <div>
+        <label>
+          Name :
+          <input type="text" name="full_name" placeholder="Enter Full Name" />
+        </label>
+      </div>
+
+      <div>
+        Gender :
+        <label> <input name="gender" type="radio" value="male" /> Male</label>
+        <label>
+          <input name="gender" type="radio" value="female" /> Female</label
+        >
+        <label>
+          <input name="gender" type="radio" value="others" /> Others</label
+        >
+      </div>
+
+      <div>
+        <label
+          >Country :
+          <select name="country">
+            <option value="india">India</option>
+            <option value="china">China</option>
+          </select>
+        </label>
+      </div>
+
+      <button type="submit">REGISTER</button>
+    </form>
+  </body>
+</html>

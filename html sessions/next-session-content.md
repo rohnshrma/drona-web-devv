@@ -58,7 +58,8 @@ Common inline elements:
 
 ```html
 <p>
-  My name is <span style="background-color: yellow;">Rohan</span> and I teach HTML.
+  My name is <span style="background-color: yellow;">Rohan</span> and I teach
+  HTML.
 </p>
 ```
 
@@ -210,12 +211,12 @@ This is very useful when you want:
 
 ## 5. Quick Difference Table
 
-| Property | `inline` | `block` | `inline-block` |
-| --- | --- | --- | --- |
-| Starts from new line | No | Yes | No |
-| Takes full width by default | No | Yes | No |
-| Respects width and height | Usually no | Yes | Yes |
-| Best used for | text, links | sections, layout | side-by-side boxes |
+| Property                    | `inline`    | `block`          | `inline-block`     |
+| --------------------------- | ----------- | ---------------- | ------------------ |
+| Starts from new line        | No          | Yes              | No                 |
+| Takes full width by default | No          | Yes              | No                 |
+| Respects width and height   | Usually no  | Yes              | Yes                |
+| Best used for               | text, links | sections, layout | side-by-side boxes |
 
 ---
 
@@ -653,11 +654,11 @@ p {
 
 ## 17. Inline vs Internal vs External CSS
 
-| Type | Where CSS is written | Best for | Reusability |
-| --- | --- | --- | --- |
-| Inline | inside HTML tag | quick small test | Very low |
-| Internal | inside `<style>` in same HTML file | one page demo | Medium |
-| External | separate `.css` file | real projects | High |
+| Type     | Where CSS is written               | Best for         | Reusability |
+| -------- | ---------------------------------- | ---------------- | ----------- |
+| Inline   | inside HTML tag                    | quick small test | Very low    |
+| Internal | inside `<style>` in same HTML file | one page demo    | Medium      |
+| External | separate `.css` file               | real projects    | High        |
 
 ---
 
