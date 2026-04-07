@@ -16,12 +16,13 @@
 
 .b2 {
   background-color: tan;
-  /* element is allowed to move but its space is still unbothered */
-  position: relative;
-  /* top -> bottom */
-  top: 200px;
-  /* left -> right */
-  left: 400px;
+  /* element is fixed on the screen and doesn't remain part of document flow */
+  /* the elements after takes its place */
+
+  /* element moves in relation to viewport */
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
 }
 .b3 {
   background-color: orange;
