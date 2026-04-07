@@ -13,10 +13,15 @@
 .b1 {
   background-color: teal;
 }
+
 .b2 {
   background-color: tan;
-  position: static;
-  top: 100px;
+  /* element is allowed to move but its space is still unbothered */
+  position: relative;
+  /* top -> bottom */
+  top: 200px;
+  /* left -> right */
+  left: 400px;
 }
 .b3 {
   background-color: orange;
