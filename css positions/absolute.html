@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Absolute Position</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Work+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <a class="back-link" href="index.html">← Back to all position types</a>
+    <h1>Position: absolute</h1>
+    <p class="lesson-text">
+      <strong>Absolute</strong> takes an element out of the normal page flow. That means it no
+      longer behaves like a regular box in the layout. Instead, it can be placed exactly using
+      <code>top</code>, <code>left</code>, <code>right</code>, and <code>bottom</code>. It usually
+      positions itself based on the nearest parent that has a position like <code>relative</code>.
+    </p>
+
+    <div class="demo-area parent-box">
+      <div class="parent-label">Parent box with position: relative</div>
+      <div class="demo-box coral">Normal Box</div>
+      <div class="demo-box teal">Another Box</div>
+      <div class="demo-box gold absolute-box">Absolute Box</div>
+    </div>
+
+    <p class="explain-note">
+      Here, the gold box is placed inside the parent box using absolute positioning. It floats on
+      top and does not keep a normal space like the other boxes.
+    </p>
+  </div>
+</body>
+</html>

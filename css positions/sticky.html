@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sticky Position</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Work+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <a class="back-link" href="index.html">← Back to all position types</a>
+    <h1>Position: sticky</h1>
+    <p class="lesson-text">
+      <strong>Sticky</strong> is like a mix of relative and fixed. At first, the element acts like
+      a normal element in the page. But when you scroll and it reaches a chosen point, it sticks
+      there instead of disappearing. This is useful for section headings or menus that should stay
+      visible while you read.
+    </p>
+
+    <div class="sticky-demo">
+      <div class="sticky-box">I become sticky when you scroll</div>
+      <div class="scroll-content">
+        <p>Keep scrolling to watch the sticky bar stay near the top.</p>
+        <p>Sticky elements are helpful because they do not start fixed immediately.</p>
+        <p>They first behave like normal content, which feels natural in the layout.</p>
+        <p>Then they stick only when needed during scrolling.</p>
+        <p>This makes them great for labels, headings, or navigation areas.</p>
+        <p>Scroll a little more and you will still see the sticky box.</p>
+        <p>That is the main idea behind <code>position: sticky</code>.</p>
+      </div>
+    </div>
+
+    <p class="explain-note">
+      The sticky bar begins in the normal flow. Once you scroll inside the page and it reaches the
+      top area, it sticks there and remains visible.
+    </p>
+  </div>
+</body>
+</html>

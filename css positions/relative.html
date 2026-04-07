@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relative Position</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Work+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <a class="back-link" href="index.html">← Back to all position types</a>
+    <h1>Position: relative</h1>
+    <p class="lesson-text">
+      <strong>Relative</strong> means the element starts in its normal place, but now you are
+      allowed to move it a little using <code>top</code>, <code>left</code>, <code>right</code>,
+      or <code>bottom</code>. A very important point is that the element still keeps its original
+      space in the layout. So it moves visually, but the page still remembers where it started.
+    </p>
+
+    <div class="demo-area">
+      <div class="demo-box coral">Normal Box</div>
+      <div class="demo-box gold relative-box">Moved Box</div>
+      <div class="demo-box teal">Next Box</div>
+    </div>
+
+    <p class="explain-note">
+      The middle box is using <code>position: relative</code> and has been pushed slightly down
+      and right. Notice that the other boxes still behave as if the moved box is in its old place.
+    </p>
+  </div>
+</body>
+</html>
