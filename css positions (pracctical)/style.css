@@ -3,13 +3,6 @@
   margin: 0;
 }
 
-#parent {
-  background-color: grey;
-  height: 500px;
-  width: 500px;
-  position: relative;
-}
-
 .box {
   font-size: 48px;
   text-align: center;
@@ -23,14 +16,8 @@
 
 .b2 {
   background-color: tan;
-  /* element doesn't remain part of document flow */
-  /* the elements after takes its place */
-
-  /* element moves in relation to viewport (by default) but can be forced to move in relation to its parent by giving
-  its parent a position (preffered position relative) */
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  position: sticky;
+  top: 0px;
 }
 .b3 {
   background-color: orange;
