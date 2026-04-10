@@ -1,0 +1,25 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+#parent {
+  padding: 16px;
+  background-color: grey;
+  display: flex;
+}
+
+.child {
+  height: 100px;
+  width: calc(100% / 3);
+}
+
+.c1 {
+  background-color: teal;
+}
+.c2 {
+  background-color: powderblue;
+}
+.c3 {
+  background-color: royalblue;
+}
