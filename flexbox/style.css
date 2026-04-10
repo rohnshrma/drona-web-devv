@@ -5,21 +5,27 @@
 
 #parent {
   padding: 16px;
+  height: 400px;
   background-color: grey;
   display: flex;
+  justify-content: space-around;
+  align-items: stretch;
 }
 
 .child {
-  height: 100px;
-  width: calc(100% / 3);
+  /* height: 100px; */
+  /* width: calc(100% / 3); */
 }
 
 .c1 {
   background-color: teal;
+  width: 30%;
 }
 .c2 {
+  width: 30%;
   background-color: powderblue;
 }
 .c3 {
+  width: 30%;
   background-color: royalblue;
 }
