@@ -8,13 +8,17 @@
   height: 400px;
   background-color: grey;
   display: flex;
-  justify-content: space-around;
-  align-items: stretch;
-}
+  justify-content: space-evenly;
+  align-items: center;
+  /* flex-wrap: wrap-reverse; */
 
+  
+}
 .child {
   /* height: 100px; */
   /* width: calc(100% / 3); */
+
+  width: 500px;
 }
 
 .c1 {
