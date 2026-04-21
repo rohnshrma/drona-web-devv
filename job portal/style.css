@@ -1,0 +1,60 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  padding: 8rem 12rem;
+  text-align: center;
+}
+
+#hero h1 {
+  font-size: 4rem;
+  font-weight: 800;
+}
+
+#hero .img-bx img {
+  width: 90%;
+  position: relative;
+  left: 100px;
+}
+
+#categories {
+}
+
+#categories .category-box .card {
+  margin: 1rem;
+  padding: 1rem;
+}
+
+#categories .category-box .card i {
+  text-align: center !important;
+}
+#categories .category-box .card p {
+  margin: 0;
+}
+
+#jobs .job-card {
+  padding: 1rem;
+  text-align: left !important;
+}
+#jobs .job-card .card-header {
+  margin-bottom: 0 !important;
+}
+#jobs .job-card .card-header .c-logo {
+  display: flex;
+  border: 0.5px solid #ccc;
+  justify-content: center;
+  align-items: center;
+}
+
+/*  css for smaller screen */
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 2rem;
+  }
+  .card {
+    margin: 1rem 0 !important;
+  }
+}
