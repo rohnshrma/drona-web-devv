@@ -33,7 +33,7 @@ pi = 100;
 
 // var vs let
 
-// var allows redecllaration
+// var allows redeclaration
 var x = 34; // declaration
 
 var x = 56; // redeclaration
