@@ -1,190 +1,284 @@
-# Class 1 - JavaScript Basics
+# JavaScript Deep Notes: Conditionals and Operators
 
-Date: 21 April 2026
+Date: April 30, 2026
 
-These notes cover everything taught in class today, including commented topics from `script.js` and JS placement from `index.html`.
+These notes deeply explain the concepts and code from `cfs.js` and `operators.js`, including lines that were originally commented in class.
 
-## 1) JavaScript Input and Output Basics
+## 1) Condition Flow Statements (`cfs.js`)
 
-### Output methods
+### 1.1 What is Control Flow?
 
-1. `console.log()`
+Control flow means deciding which block of code runs next.
+Condition statements allow JavaScript to choose one execution path based on a boolean result (`true` or `false`).
 
-- Used to print output in browser console.
-- Best for developers while debugging.
-- Example:
+### 1.2 `if`, `else`, `else if` Concept
 
-```js
-console.log("hello world");
-```
+- `if`: runs block only when condition is true.
+- `else`: runs when all above conditions are false.
+- `else if`: checks another condition if previous one failed.
 
-2. `alert()` or `window.alert()`
-
-- Shows popup message in browser.
-- `alert()` and `window.alert()` are effectively same.
-- Example:
+Syntax:
 
 ```js
-alert("hello alert");
-window.alert("hello alert");
+if (condition) {
+  // run if true
+} else if (anotherCondition) {
+  // run if above was false and this is true
+} else {
+  // run if all conditions are false
+}
 ```
 
-### Input method
-
-3. `prompt()`
-
-- Takes input from user using popup.
-- Can have default value.
-- Example:
+### 1.3 Uncommented Teaching Version of `cfs.js`
 
 ```js
-prompt("Enter your name", "john doe");
+// IF statement
+// The code inside `if` runs only when condition is true.
+if (true) {
+  console.log("This runs because condition is true");
+}
+
+// Basic age check example
+var age = parseInt(prompt("Enter your age: "));
+if (age >= 18) {
+  console.log("Eligible");
+} else {
+  console.log("Not eligible");
+}
+
+// if...else if...else chain example (day number to day name)
+var today = parseInt(prompt("Enter the day today (0-6): "));
+
+if (today === 0) console.log("Sunday");
+else if (today === 1) console.log("Monday");
+else if (today === 2) console.log("Tuesday");
+else if (today === 3) console.log("Wednesday");
+else if (today === 4) console.log("Thursday");
+else if (today === 5) console.log("Friday");
+else if (today === 6) console.log("Saturday");
+else console.log("Invalid day");
 ```
 
-## 2) Variables
+### 1.4 Deep Explanation of Key Lines
 
-### What is a variable?
+#### `parseInt(prompt("..."))`
 
-A variable is a named container to store data.
+- `prompt()` returns input as string.
+- `parseInt()` converts that string into an integer number.
+- If conversion fails (e.g., input is `abc`), output becomes `NaN`.
 
-### Variable creation steps
+#### `age >= 18`
 
-1. Declaration: variable name is created.
-2. Initialization: value is assigned.
+- `>=` checks if left value is greater than or equal to right value.
+- If condition true, first block runs.
+- Otherwise `else` block runs.
 
-Example:
+#### `today === 0`
+
+- `===` is strict equality.
+- It compares both value and datatype.
+- Better than `==` for predictable behavior.
+
+### 1.5 Why `else if` Ordering Matters
+
+Conditions are checked top to bottom.
+First true condition wins, then rest are skipped.
+So when ranges overlap, put more specific conditions first.
+
+### 1.6 Better Validation Version (Production Habit)
 
 ```js
-var age; // declaration
-age = 34; // initialization
+var dayInput = prompt("Enter day number (0-6): ");
+var today = parseInt(dayInput);
+
+if (Number.isNaN(today)) {
+  console.log("Invalid input: enter a number");
+} else if (today < 0 || today > 6) {
+  console.log("Invalid day: use 0 to 6");
+} else if (today === 0) {
+  console.log("Sunday");
+} else if (today === 1) {
+  console.log("Monday");
+} else if (today === 2) {
+  console.log("Tuesday");
+} else if (today === 3) {
+  console.log("Wednesday");
+} else if (today === 4) {
+  console.log("Thursday");
+} else if (today === 5) {
+  console.log("Friday");
+} else {
+  console.log("Saturday");
+}
 ```
 
-Or both together:
+## 2) Operators (`operators.js`)
+
+### 2.1 Arithmetic Operators
 
 ```js
-var age = 34;
-```
+var x = 10;
+var y = 2;
 
-## 3) `var`, `let`, `const`
-
-These 3 keywords are used to create variables.
-
-### A) `var`
-
-- Can be redeclared.
-- Can be reassigned.
-
-Example:
-
-```js
-var x = 34; // declaration
-x = 45; // reassignment allowed
-var x = 56; // redeclaration allowed
-```
-
-### B) `let`
-
-- Cannot be redeclared in same scope.
-- Can be reassigned.
-
-Example:
-
-```js
-let y = 23;
-y = 56; // allowed
-// let y = 99; // not allowed in same scope
-```
-
-### C) `const`
-
-- Must be initialized at the time of declaration.
-- Cannot be reassigned.
-
-Examples:
-
-```js
-const pi = 3.14;
-// pi = 100; // error: Assignment to constant variable
-
-// const myname; // error: Missing initializer in const declaration
-```
-
-## 4) Important terms from class code
-
-In this line:
-
-```js
-var age = 34;
-```
-
-- `var` -> keyword
-- `age` -> variable name
-- `=` -> assignment operator
-- `34` -> value
-- `;` -> end of statement (EOS)
-
-## 5) Where to put JavaScript in HTML (and where not)
-
-From your `index.html`, two approaches were shown:
-
-### 1. External JavaScript (recommended)
-
-```html
-<script src="script.js"></script>
-```
-
-Best place (usually): just before closing `</body>` so HTML loads first and then JS runs.
-
-### 2. Internal JavaScript
-
-```html
-<script>
-  // JS code here
-</script>
-```
-
-This can also be placed before `</body>`.
-
-### Where not to place JS (for beginners)
-
-- Avoid writing heavy JS in `<head>` without `defer`/`async`, because it can block page rendering.
-- Avoid mixing large JS blocks directly in HTML when project grows; prefer external file.
-- Avoid inline JS in attributes like `onclick="..."` for clean code practice.
-
-## 6) Internal JS example discussed (commented in HTML)
-
-```js
-document.querySelector("#main").addEventListener("mouseover", () => {
-  document.querySelector("#main").innerText = "Abe ja Good Night";
-});
+console.log(x + y);  // 12
+console.log(x - y);  // 8
+console.log(x * y);  // 20
+console.log(x / y);  // 5
+console.log(x % y);  // 0
+console.log(x ** y); // 100
 ```
 
 Meaning:
 
-- Select element with id `main`
-- Listen for `mouseover`
-- Change heading text when mouse comes over it
+- `+` add
+- `-` subtract
+- `*` multiply
+- `/` divide
+- `%` remainder
+- `**` power/exponent
 
-## 7) Errors intentionally shown in class
+### 2.2 Assignment Operators
 
-Your script includes two lines that will stop execution with error:
+```js
+var z = 10;
 
-1. `pi = 100;`
+z += 10; // z = z + 10
+console.log(z); // 20
 
-- Error because `pi` is `const`.
+z -= 10; // z = z - 10
+console.log(z); // 10
 
-2. `let y = 56;` after `let y = 23;` in same scope
+z *= 10; // z = z * 10
+console.log(z); // 100
 
-- Error because `let` redeclaration is not allowed.
+z /= 10; // z = z / 10
+console.log(z); // 10
 
-Tip: Keep these lines commented while practicing other code.
+z %= 10; // z = z % 10
+console.log(z); // 0
 
-## 8) Quick revision
+z **= 10; // z = z ** 10
+console.log(z); // 0
+```
 
-1. Input: `prompt()`
-2. Output: `console.log()`, `alert()`
-3. Variables: `var`, `let`, `const`
-4. `var`: redeclare + reassign
-5. `let`: reassign only
-6. `const`: initialize compulsory, no reassignment
-7. Preferred JS placement: external file at end of body
+Note:
+Each operation updates the same variable, so result depends on previous line.
+
+### 2.3 Comparison Operators
+
+```js
+console.log(12 > 10);     // true
+console.log(12 >= 10);    // true
+console.log(2 < 10);      // true
+console.log(2 <= 10);     // true
+console.log(20 == "20");  // true
+console.log(20 === "20"); // false
+console.log(20 != "20");  // false
+console.log(20 !== "20"); // true
+```
+
+Deep rule:
+
+- `==` and `!=` can convert datatypes automatically.
+- `===` and `!==` do not convert datatype.
+- Prefer strict operators in most real code.
+
+### 2.4 Logical Operators
+
+```js
+console.log(12 > 10 && 10 < 12); // true
+console.log(12 < 10 && 10 < 12); // false
+console.log(12 < 10 && 10 > 12); // false
+
+console.log(12 > 10 || 10 < 12); // true
+console.log(12 < 10 || 10 < 12); // true
+console.log(12 < 10 || 10 > 12); // false
+
+console.log(!true);  // false
+console.log(!false); // true
+```
+
+Meaning:
+
+- `&&`: all conditions must be true.
+- `||`: at least one condition must be true.
+- `!`: reverses boolean.
+
+### 2.5 Real-World Connection
+
+- Login checks use `&&` (username and password both correct).
+- Access checks use comparisons (`age >= 18`).
+- Validation checks use `||` for invalid cases (`value < min || value > max`).
+
+## 3) Short Dry Runs
+
+### Example A
+
+```js
+var age = 17;
+if (age >= 18) console.log("Eligible");
+else console.log("Not Eligible");
+```
+
+- `17 >= 18` -> false
+- `else` runs
+- Output: `Not Eligible`
+
+### Example B
+
+```js
+var today = 4;
+if (today === 0) console.log("Sunday");
+else if (today === 4) console.log("Thursday");
+else console.log("Invalid");
+```
+
+- First condition false
+- Second condition true
+- Output: `Thursday`
+
+## 4) Practice Tasks (20) - No Functions, Arrays, Loops, Objects
+
+1. Take two numbers and print all arithmetic results.
+2. Check if a number is even or odd using `%`.
+3. Check if number is positive, negative, or zero.
+4. Compare two numbers and print greater or equal.
+5. Check if age is eligible to vote (`>=18`).
+6. Grade calculator using slabs (`A/B/C/D/F`).
+7. Check if number is divisible by 3.
+8. Check if number is divisible by 5.
+9. Check if number divisible by both 3 and 5.
+10. Check if number divisible by 3 or 5.
+11. Day number (0-6) to day name.
+12. Month number (1-12) to quarter (`Q1-Q4`).
+13. Salary bonus: if `<30000` add 20%, else add 10%.
+14. Shopping discount by amount ranges.
+15. Validate login with fixed username and password.
+16. Check if input number is in range 10 to 50.
+17. Use `==` and `===` on same values and print both results.
+18. Check leap year using full condition.
+19. Character check: uppercase/lowercase/digit/other.
+20. Admission rule: age >= 18 and marks >= 60.
+
+## 5) Mini Combined Practice
+
+Take inputs:
+
+- age
+- day number (0-6)
+- marks
+
+Print:
+
+- age eligibility
+- day name
+- pass/fail (`marks >= 35`)
+- distinction (`marks >= 75`)
+
+Use only:
+
+- variables
+- `if`, `else if`, `else`
+- comparison and logical operators
+- `console.log`
+
