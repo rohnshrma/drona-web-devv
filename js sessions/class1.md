@@ -1,284 +1,186 @@
-# JavaScript Deep Notes: Conditionals and Operators
+# JavaScript Class 1 Notes: `if/else` and `switch`
 
-Date: April 30, 2026
+Date: May 3, 2026
 
-These notes deeply explain the concepts and code from `cfs.js` and `operators.js`, including lines that were originally commented in class.
+## 1) Quick Revision: `if`, `else if`, `else`
 
-## 1) Condition Flow Statements (`cfs.js`)
-
-### 1.1 What is Control Flow?
-
-Control flow means deciding which block of code runs next.
-Condition statements allow JavaScript to choose one execution path based on a boolean result (`true` or `false`).
-
-### 1.2 `if`, `else`, `else if` Concept
-
-- `if`: runs block only when condition is true.
-- `else`: runs when all above conditions are false.
-- `else if`: checks another condition if previous one failed.
-
-Syntax:
+- `if`: runs only when condition is true.
+- `else if`: extra condition checks when above condition is false.
+- `else`: fallback when all above conditions are false.
 
 ```js
-if (condition) {
-  // run if true
-} else if (anotherCondition) {
-  // run if above was false and this is true
-} else {
-  // run if all conditions are false
-}
-```
-
-### 1.3 Uncommented Teaching Version of `cfs.js`
-
-```js
-// IF statement
-// The code inside `if` runs only when condition is true.
-if (true) {
-  console.log("This runs because condition is true");
-}
-
-// Basic age check example
 var age = parseInt(prompt("Enter your age: "));
-if (age >= 18) {
-  console.log("Eligible");
-} else {
-  console.log("Not eligible");
-}
-
-// if...else if...else chain example (day number to day name)
-var today = parseInt(prompt("Enter the day today (0-6): "));
-
-if (today === 0) console.log("Sunday");
-else if (today === 1) console.log("Monday");
-else if (today === 2) console.log("Tuesday");
-else if (today === 3) console.log("Wednesday");
-else if (today === 4) console.log("Thursday");
-else if (today === 5) console.log("Friday");
-else if (today === 6) console.log("Saturday");
-else console.log("Invalid day");
-```
-
-### 1.4 Deep Explanation of Key Lines
-
-#### `parseInt(prompt("..."))`
-
-- `prompt()` returns input as string.
-- `parseInt()` converts that string into an integer number.
-- If conversion fails (e.g., input is `abc`), output becomes `NaN`.
-
-#### `age >= 18`
-
-- `>=` checks if left value is greater than or equal to right value.
-- If condition true, first block runs.
-- Otherwise `else` block runs.
-
-#### `today === 0`
-
-- `===` is strict equality.
-- It compares both value and datatype.
-- Better than `==` for predictable behavior.
-
-### 1.5 Why `else if` Ordering Matters
-
-Conditions are checked top to bottom.
-First true condition wins, then rest are skipped.
-So when ranges overlap, put more specific conditions first.
-
-### 1.6 Better Validation Version (Production Habit)
-
-```js
-var dayInput = prompt("Enter day number (0-6): ");
-var today = parseInt(dayInput);
-
-if (Number.isNaN(today)) {
-  console.log("Invalid input: enter a number");
-} else if (today < 0 || today > 6) {
-  console.log("Invalid day: use 0 to 6");
-} else if (today === 0) {
-  console.log("Sunday");
-} else if (today === 1) {
-  console.log("Monday");
-} else if (today === 2) {
-  console.log("Tuesday");
-} else if (today === 3) {
-  console.log("Wednesday");
-} else if (today === 4) {
-  console.log("Thursday");
-} else if (today === 5) {
-  console.log("Friday");
-} else {
-  console.log("Saturday");
-}
-```
-
-## 2) Operators (`operators.js`)
-
-### 2.1 Arithmetic Operators
-
-```js
-var x = 10;
-var y = 2;
-
-console.log(x + y);  // 12
-console.log(x - y);  // 8
-console.log(x * y);  // 20
-console.log(x / y);  // 5
-console.log(x % y);  // 0
-console.log(x ** y); // 100
-```
-
-Meaning:
-
-- `+` add
-- `-` subtract
-- `*` multiply
-- `/` divide
-- `%` remainder
-- `**` power/exponent
-
-### 2.2 Assignment Operators
-
-```js
-var z = 10;
-
-z += 10; // z = z + 10
-console.log(z); // 20
-
-z -= 10; // z = z - 10
-console.log(z); // 10
-
-z *= 10; // z = z * 10
-console.log(z); // 100
-
-z /= 10; // z = z / 10
-console.log(z); // 10
-
-z %= 10; // z = z % 10
-console.log(z); // 0
-
-z **= 10; // z = z ** 10
-console.log(z); // 0
-```
-
-Note:
-Each operation updates the same variable, so result depends on previous line.
-
-### 2.3 Comparison Operators
-
-```js
-console.log(12 > 10);     // true
-console.log(12 >= 10);    // true
-console.log(2 < 10);      // true
-console.log(2 <= 10);     // true
-console.log(20 == "20");  // true
-console.log(20 === "20"); // false
-console.log(20 != "20");  // false
-console.log(20 !== "20"); // true
-```
-
-Deep rule:
-
-- `==` and `!=` can convert datatypes automatically.
-- `===` and `!==` do not convert datatype.
-- Prefer strict operators in most real code.
-
-### 2.4 Logical Operators
-
-```js
-console.log(12 > 10 && 10 < 12); // true
-console.log(12 < 10 && 10 < 12); // false
-console.log(12 < 10 && 10 > 12); // false
-
-console.log(12 > 10 || 10 < 12); // true
-console.log(12 < 10 || 10 < 12); // true
-console.log(12 < 10 || 10 > 12); // false
-
-console.log(!true);  // false
-console.log(!false); // true
-```
-
-Meaning:
-
-- `&&`: all conditions must be true.
-- `||`: at least one condition must be true.
-- `!`: reverses boolean.
-
-### 2.5 Real-World Connection
-
-- Login checks use `&&` (username and password both correct).
-- Access checks use comparisons (`age >= 18`).
-- Validation checks use `||` for invalid cases (`value < min || value > max`).
-
-## 3) Short Dry Runs
-
-### Example A
-
-```js
-var age = 17;
 if (age >= 18) console.log("Eligible");
 else console.log("Not Eligible");
 ```
 
-- `17 >= 18` -> false
-- `else` runs
-- Output: `Not Eligible`
+## 2) `switch` Statement Concept
 
-### Example B
+`switch` is used when we want to compare one expression against many options.
+
+Syntax:
 
 ```js
-var today = 4;
-if (today === 0) console.log("Sunday");
-else if (today === 4) console.log("Thursday");
-else console.log("Invalid");
+switch (expression) {
+  case value1:
+    // code
+    break;
+  case value2:
+    // code
+    break;
+  default:
+    // fallback code
+}
 ```
 
-- First condition false
-- Second condition true
-- Output: `Thursday`
+### Important Rules
 
-## 4) Practice Tasks (20) - No Functions, Arrays, Loops, Objects
+- `expression` is checked once.
+- Matching is strict (like `===`).
+- `break` stops execution.
+- If `break` is missing, code falls into next case (fall-through).
+- `default` runs when no case matches.
 
-1. Take two numbers and print all arithmetic results.
-2. Check if a number is even or odd using `%`.
-3. Check if number is positive, negative, or zero.
-4. Compare two numbers and print greater or equal.
-5. Check if age is eligible to vote (`>=18`).
-6. Grade calculator using slabs (`A/B/C/D/F`).
-7. Check if number is divisible by 3.
-8. Check if number is divisible by 5.
-9. Check if number divisible by both 3 and 5.
-10. Check if number divisible by 3 or 5.
-11. Day number (0-6) to day name.
-12. Month number (1-12) to quarter (`Q1-Q4`).
-13. Salary bonus: if `<30000` add 20%, else add 10%.
-14. Shopping discount by amount ranges.
-15. Validate login with fixed username and password.
-16. Check if input number is in range 10 to 50.
-17. Use `==` and `===` on same values and print both results.
-18. Check leap year using full condition.
-19. Character check: uppercase/lowercase/digit/other.
-20. Admission rule: age >= 18 and marks >= 60.
+## 3) Switch Case 1: Day Number to Day Name
 
-## 5) Mini Combined Practice
+```js
+var today = parseInt(prompt("Enter the day today (0-6): "));
 
-Take inputs:
+switch (today) {
+  case 0:
+    console.log("Sunday");
+    break;
+  case 1:
+    console.log("Monday");
+    break;
+  case 2:
+    console.log("Tuesday");
+    break;
+  case 3:
+    console.log("Wednesday");
+    break;
+  case 4:
+    console.log("Thursday");
+    break;
+  case 5:
+    console.log("Friday");
+    break;
+  case 6:
+    console.log("Saturday");
+    break;
+  default:
+    console.log("Invalid Day");
+    break;
+}
+```
 
-- age
-- day number (0-6)
-- marks
+Use this when one input has fixed known outputs.
 
-Print:
+## 4) Switch Case 2: Movie Ticketing (Grouped Cases)
 
-- age eligibility
-- day name
-- pass/fail (`marks >= 35`)
-- distinction (`marks >= 75`)
+Ticket rules:
+- `0-4` -> Free
+- `5-10` -> `₹100`
+- `11-14` -> `₹200`
+- `15+` -> `₹500`
 
-Use only:
+```js
+var age = parseInt(prompt("Enter your age: "));
 
-- variables
-- `if`, `else if`, `else`
-- comparison and logical operators
-- `console.log`
+switch (age) {
+  case 0:
+  case 1:
+  case 2:
+  case 3:
+  case 4:
+    console.log("Free");
+    break;
+  case 5:
+  case 6:
+  case 7:
+  case 8:
+  case 9:
+  case 10:
+    console.log("₹100");
+    break;
+  case 11:
+  case 12:
+  case 13:
+  case 14:
+    console.log("₹200");
+    break;
+  default:
+    console.log("₹500");
+    break;
+}
+```
 
+Here, multiple `case` labels share one output using fall-through.
+
+## 5) Switch Case 3: Grade System with `switch(true)`
+
+Grade rules:
+- `91-100` -> `A`
+- `81-90` -> `B`
+- `71-80` -> `C`
+- `61-70` -> `D`
+- `0-60` -> `F`
+
+```js
+var marks = parseInt(prompt("Enter your marks: "));
+
+switch (true) {
+  case marks > 90 && marks <= 100:
+    console.log("A");
+    break;
+  case marks > 80 && marks <= 90:
+    console.log("B");
+    break;
+  case marks > 70 && marks <= 80:
+    console.log("C");
+    break;
+  case marks > 60 && marks <= 70:
+    console.log("D");
+    break;
+  case marks >= 0 && marks <= 60:
+    console.log("F");
+    break;
+  default:
+    console.log("Invalid Marks");
+    break;
+}
+```
+
+Why `switch(true)`?
+- Normal switch checks exact value.
+- Here each `case` is a condition (`true/false`).
+- First condition that becomes `true` runs.
+
+## 6) When to Choose What
+
+- Use `if/else if` for mixed or complex logic.
+- Use normal `switch(value)` for fixed exact choices.
+- Use `switch(true)` for clean range-based slab logic.
+
+## 7) 20 Practice Tasks (No Arrays, Objects, Functions, Loops)
+
+1. Day number (`0-6`) to day name using switch.
+2. Month number (`1-12`) to month name.
+3. Day number to weekday/weekend.
+4. Traffic light color to action.
+5. Operator symbol (`+ - * / %`) mini calculator.
+6. Vowel/consonant checker using switch.
+7. ATM menu option to message.
+8. Size code (`S/M/L`) to t-shirt price.
+9. Grade from marks using `switch(true)`.
+10. Temperature slab (`cold/mild/hot`) with `switch(true)`.
+11. Shipping cost by weight slabs.
+12. Electricity bill by unit slabs.
+13. Age category (`child/teen/adult/senior`) using `switch(true)`.
+14. Salary bonus by salary slabs.
+15. Discount by cart amount slabs.
+16. Print digit (`0-9`) in words.
+17. Login role (`admin/user/guest`) message.
+18. Movie rating code (`U/UA/A`) message.
+19. Pass/fail/distinction from marks slabs.
+20. Validate input range and print `Invalid` using `default`.
