@@ -107,3 +107,11 @@ while (true) {
 // 18) Keep asking for email until it has "@" and ends with ".org".
 // 19) Keep asking for command until user enters "exit".
 // 20) Keep asking for a secret code until length is 6 and includes "#".
+
+//
+
+var nums = [34, 45, 23, 45, 2, 3];
+
+for (var i = 0; i < nums.length; i++) {
+  console.log(nums[i]);
+}
