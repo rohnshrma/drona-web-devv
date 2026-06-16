@@ -3,7 +3,7 @@ let request = new XMLHttpRequest();
 request.addEventListener("readystatechange", () => {
   console.log("ready state =>", request.readyState, request.status);
   if (request.readyState == 4 && request.status === 200) {
-    console.log(request.readyState, JSON.parse(request.responseText).joke);
+    console.log(request.readyState, JSON.parse(request.responseText));
   }
   if (request.readyState == 4 && request.status !== 200) {
     console.error("Failed to fetch joke");
