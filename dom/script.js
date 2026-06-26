@@ -64,3 +64,16 @@ console.log(h2.classList.add("hello"));
 console.log(h2.classList);
 console.log(h2.classList.remove("champak"));
 console.log(h2.classList);
+
+var img = document.querySelector("img");
+var on = document.querySelector(".on");
+var off = document.querySelector(".off");
+
+console.log(on, off, img);
+
+on.addEventListener("click", function () {
+  img.setAttribute("src", "./idea.png");
+});
+off.addEventListener("click", function () {
+  img.setAttribute("src", "./lightbulb.png");
+});
